@@ -23,8 +23,11 @@
     'name': 'comment.robot'
   }
   {
-    'begin': '^[^ \t\n\*\|].+'
+    'begin': '^[^ \t\n\*\|](.+)(\${.*?}?)'
     'end': '$'
+    'captures':
+      '2':
+        'name': 'variable.language.robot'
     'name': 'keyword.control.robot'
   }
   {

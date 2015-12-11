@@ -145,3 +145,9 @@ describe 'Robot Framework grammar', ->
         expect(tokens.length).toEqual 1
         expect(tokens[0].value).toEqual line
         expect(tokens[0].scopes).toEqual ['text.robot', 'keyword.control.robot']
+
+    it 'tokenizes variable in keyword', ->
+      {tokens} = grammar.tokenizeLine 'Test Keyword ${myvar}'
+
+      expect(tokens.length).toEqual 2
+      expect(tokens[1].value).toEqual '${myvar}'
